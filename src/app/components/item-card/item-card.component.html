@@ -1,0 +1,16 @@
+<div class="item-card">
+    <div class="item-card__image-container">
+      <img class="item-card__image" [src]="item.img" alt="{{ item.title }}">
+      <span class="item-card__tag item-card__tag--{{ getTypeClass() }}">{{ getTypeText() }}</span>
+      <button class="item-card__delete-button" (click)="onDelete()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="item-card__content">
+      <h3 class="item-card__title">{{ item.title }}</h3>
+      <p class="item-card__description">{{ item.description }}</p>
+    </div>
+    <div class="item-card__add-button-container">
+      <button class="item-card__add-to-cart"><i class="fas fa-plus"></i> Adicionar</button>
+    </div>
+  </div>

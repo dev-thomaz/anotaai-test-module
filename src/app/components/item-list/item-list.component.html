@@ -1,0 +1,9 @@
+<div class="item-list">
+    <div *ngIf="loading$ | async">Carregando itens...</div>
+    <div *ngIf="error$ | async">Erro ao carregar itens: {{ error$ | async }}</div>
+    <app-item-card
+      *ngFor="let item of filteredItems$ | async"
+      [item]="item"
+      (delete)="deleteCard(item.id)"
+    ></app-item-card>
+  </div>
