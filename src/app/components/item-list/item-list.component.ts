@@ -20,15 +20,15 @@ export class ItemListComponent implements OnInit, OnChanges {
   error$: Observable<string | null> = this.store.select(selectError);
   @Input() searchTerm: string = '';
   filteredItems$!: Observable<Item[]>;
-
+  filteredItems: Item[] = [];
   ngOnInit(): void {
     this.store.dispatch(loadItems());
-    this.filterItems();
+    this.handleSearch()
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['searchTerm']) {
-      this.filterItems();
+      this.handleSearch()
     }
   }
 
@@ -36,13 +36,15 @@ export class ItemListComponent implements OnInit, OnChanges {
     this.store.dispatch(deleteItem({ id }));
   }
 
-  private filterItems(): void {
+
+
+  handleSearch(searchTerm: string = ''): void {
     this.filteredItems$ = this.items$.pipe(
       startWith([]),
       map(items =>
         items.filter(item =>
-          item.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(this.searchTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) ||
-          item.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(this.searchTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
+          item.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(searchTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) ||
+          item.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(searchTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
         )
       )
     );

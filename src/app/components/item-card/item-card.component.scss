@@ -1,6 +1,6 @@
 
 .item-card {
-  width: 300px;
+  width: 280px;
   border: 1px solid #eee;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -11,6 +11,14 @@
   flex-direction: column;
   min-height: 430px; 
   overflow:visible;
+
+  transition: transform 0.2s ease-in-out; 
+
+  &:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  }
+
 }
 
 .item-card__image-container {
@@ -107,4 +115,12 @@
   padding: 0;
   line-height: 1;
   z-index: 10;
+
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: rotate(90deg); 
+   color:red;
+   border-color: #000;
+  }
 }

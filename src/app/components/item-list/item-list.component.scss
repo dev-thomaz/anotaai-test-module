@@ -4,3 +4,16 @@
     padding: 16px;
     justify-content: space-around;
   }
+  .no-items-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    color: #777;
+  }
+  
+  .sad-icon {
+    margin-bottom: 10px;
+    font-size: 150px;
+    color: orangered;
+  }

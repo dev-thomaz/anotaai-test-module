@@ -14,6 +14,7 @@ import { ItemCardComponent } from './components/item-card/item-card.component';
 import { ItemService } from './services/item.service';
 import { itemReducer, getItemFeatureKey } from './store/reducers/item.reducer';
 import { ItemEffects } from './store/effects/item.effects';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [];
 
@@ -23,6 +24,7 @@ const routes: Routes = [];
     HeaderComponent,
     ItemListComponent,
     ItemCardComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

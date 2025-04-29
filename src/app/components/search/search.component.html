@@ -1,0 +1,11 @@
+<div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="onSearchInputChange()"
+      class="search-input"
+    >
+    <button (click)="onSearchInputChange()" class="search-button">
+        <i class="fas fa-search search-icon"></i>
+    </button>
+  </div>
